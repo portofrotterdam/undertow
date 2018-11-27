@@ -2,19 +2,29 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('build') {
             steps {
-                echo 'Building..'
+                echo 'Building'
             }
         }
-        stage('Test') {
+        stage('deploy-ci') {
             steps {
-                echo 'Testing..'
+                echo 'Deploying to CI'
             }
         }
-        stage('Deploy') {
+        tage('release') {
             steps {
-                echo 'Deploying....'
+                echo 'Creating versioned release'
+            }
+        }
+        stage('deploy-test') {
+            steps {
+                echo 'Deploying to TEST'
+            }
+        }
+        stage('deploy-accp') {
+            steps {
+                echo 'Deploying to ACCP'
             }
         }
     }
